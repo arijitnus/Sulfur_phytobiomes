@@ -1,4 +1,5 @@
 ##Trying out phyloGLM for BGC MAGs data
+library(phylolm)
 df<-read.table('/Users/arijitmukherjee/Documents/Phytobiome/BGC_isolates/New_final_data/MAGs/Phylo-D/MAGs_final_tree.tsv',sep = "\t")
 head(df)
 rownames(df)<-df$Assembly
@@ -14,6 +15,7 @@ names(y)<-rownames(df)
 Res<-NULL
 subtree<-drop.tip(phy = tree,tip = which(!(tree$tip.label%in%rownames(df))))
 head(df)
+x<-sample(c(0,1),828,replace = TRUE)# a dummy x value
 
 names(x)<-rownames(df)
 x
@@ -43,6 +45,9 @@ for (column in 1:11) {
   rm(m1,m1.sum)
   Res<-rbind(Res,res)
 }
+
+#The following works,  but fails to converge for dummy data
+m<-phyloglm(x~y,data = dat,phy = subtree,method = "logistic_IG10")
 
 
 
