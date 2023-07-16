@@ -22,19 +22,25 @@ hm<-Heatmap(as.matrix(input2),cluster_rows = F,cluster_columns = F,row_names_gp 
             left_annotation = ha,
             top_annotation = column_ha)
 hm
-ggsave(
-  "Heatmap_rhizophere_sulfur_genes.tiff",
-  plot = last_plot(),
-  device = NULL,
-  path = NULL,
-  scale = 1,
-  width = 6,
-  height = 8,
-  units = "in",
-  dpi = 300,
-)
-dev.off()
 
+dpi <- 300
+
+# Set the filename and dimensions of the plot
+filename <- "HM_rhizo_sulfur.tiff"
+width <- 6  # Width in inches
+height <- 9 # Height in inches
+
+# Set the pointsize based on the DPI
+pointsize <- dpi / 72
+
+# Open the TIFF device with specified DPI and dimensions
+tiff(file = filename, width = width, height = height, units = "in", res = dpi, pointsize = pointsize)
+
+# Print the ggplot object
+print(hm)
+
+# Close the TIFF device
+dev.off()
 
 
 #code for phyllosphere microbiome enrichments
@@ -65,17 +71,23 @@ hm<-Heatmap(as.matrix(input2),cluster_rows = F,cluster_columns = F,row_names_gp 
             left_annotation = ha,
             top_annotation = column_ha)
 hm
-ggsave(
-  "phyllosphere_sulfur_genes.tiff",
-  plot = last_plot(),
-  device = NULL,
-  path = NULL,
-  scale = 1,
-  width = 6,
-  height = 6,
-  units = "in",
-  dpi = 400,
-)
+dpi <- 300
+
+# Set the filename and dimensions of the plot
+filename <- "HM_phyllo_sulfur.tiff"
+width <- 6  # Width in inches
+height <- 9 # Height in inches
+
+# Set the pointsize based on the DPI
+pointsize <- dpi / 72
+
+# Open the TIFF device with specified DPI and dimensions
+tiff(file = filename, width = width, height = height, units = "in", res = dpi, pointsize = pointsize)
+
+# Print the ggplot object
+print(hm)
+
+# Close the TIFF device
 dev.off()
 
 
