@@ -1,2 +1,2 @@
 # Sulfur_phytobiomes
-This repo contains data associated with the Review manuscript 'sulfur metabolism in phytobiomes'
+This repo contains data and codes associated with the Review manuscript 'Sulfur traits in plant microbiome: Implications for sustainable agriculture'
