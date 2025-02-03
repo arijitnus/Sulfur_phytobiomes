@@ -1,11 +1,11 @@
 df<-read_excel("/Users/arijitmukherjee/Downloads/forest_plot_input.xlsx",sheet = "Sheet1",col_names = T,skip = 0)
 dim(df)
-#forest plot for Genus
+
 library(readxl)
 library(ggplot2)
 library(dplyr)
 df$Process
-df_thiosulfate<-df%>%filter(Process=='Thiosulfate oxidation')
+df_thiosulfate<-df%>%filter(Process=='Thiosulfate oxidation')#sample plot for thiosulfate oxidation
 df$Process
 
 p = ggplot(data=df_thiosulfate,
